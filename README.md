@@ -1,8 +1,42 @@
 # Sostenibilidad
 
-Programa "Viviendas por Intensidad de Uso"
+## Programa "Viviendas por Intensidad de Uso"
+Este proyecto muestra los municipios con mayor intensidad de uso de viviendas a partir de su mediana de consumo anual en los municipios de la Comunidad de Madrid (datos del año 2021). Para ello, el programa lee un archivo CSV de la plataforma [datos.gob.es](https://datos.gob.es/es/).
 
-Programa en Java que muestra los municipios con la mediana más alta de intensidad de uso a partir del consumo eléctrico. De ellos se mostrará el territorio, el valor y el código. 
-El programa acepta dos argumentos:
-• CSV - "Viviendas por intensidad de uso a partir del consumo eléctrico. Mediana consumo anual. Municipios de la Comunidad de Madrid (2021)"
-• El número de municipios que se mostrará
+### Problema a resolver
+- Leer CSV con los datos del consumo eléctrico
+- Mostrar municipios con mayor valor de intensidad de uso, incluyendo territorio, valor y código
+- Permitir indicar el número de municipios a mostrar
+- Ordenar los resultados de manera descendente según el valor
+
+### Tecnologías
+Las tecnologías empleadas para este proyecto son:
+- Lenguaje: Java
+- Entorno de desarrollo: Visual Studio Code
+
+### Código
+#### Clase _Vivienda_
+- Método toString(): da formato de salida mostrando el territorio, el código y el valor
+~~~
+public String toString() { //Formato en el que se imprimirá
+        return "Territorio: "+this.territorio + " | Código: " + this.codigo + " | Valor: " + this.valor;
+    }
+~~~
+- Método compareTo(): permite ordenar las viviendas de manera descendente según el valor
+~~~
+ public int compareTo(Vivienda otra) { //Ordenar de manera descendente según el valor
+        return otra.getValor() - this.valor;
+    }
+~~~
+      
+#### Programa principal _ConsumoElectrico_
+- El programa acepta dos argumentos:
+  1. Ruta del CSV
+  2. Cantidad de municipios a mostrar. Si no se pasa como argumento, será 3 por defecto
+
+Funcionamiento:
+- Lee el CSV línea a línea. Se utiliza un BufferedReader omitiendo la cabecera
+- Crea objetos Vivienda a partir de los datos y los guarda en un ArrayList
+- Ordena la lista de viviendas según el valor de consumo
+- Muestra por pantalla el número solicitado
+
