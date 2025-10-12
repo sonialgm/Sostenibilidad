@@ -14,7 +14,7 @@ Informe detallado de mi equipo.
 
 - Sistema operativo: Microsoft Windows 11 Home
 - Entorno de Desarrollo 
-- IDEs instalados,versiones, extensiones relevantes 
+- IDEs instalados
     - Visual Studio Code: versión 1.104.3, extensiones de java, mysql…
     - Visual Studio 2022: versión 17.14.1, extensiones .NET, C#...
 - Herramientas 
