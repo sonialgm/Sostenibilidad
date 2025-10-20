@@ -26,6 +26,7 @@ Informe detallado de mi equipo.
 - Lenguajes de programación 
     - Java
     - JavaScript
+    - PHP
     - C#
 - Bases de datos 
     - SQL Server
