@@ -37,6 +37,7 @@ public String toString() { //Formato en el que se imprimirá
 
 Funcionamiento:
 - Lee el CSV línea a línea mediante un bucle `while`, utilizando un `BufferedReader` y omitiendo la cabecera
+- Cambiamos el valor de los guiones por 0
 - Crea objetos de la clase `Vivienda` a partir de los datos del CSV y los almacena en un `ArrayList`
 - Ordena la lista de viviendas según el valor de consumo
 - Muestra por pantalla el número solicitado de casos con mayor consumo
