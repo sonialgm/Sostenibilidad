@@ -1,44 +1,72 @@
 # Sostenibilidad
 
 ## Programa "Viviendas por Intensidad de Uso"
-Este proyecto muestra los municipios con mayor intensidad de uso de viviendas a partir de su mediana de consumo anual en los municipios de la Comunidad de Madrid (datos del año 2021). Para ello, el programa lee un archivo CSV de la plataforma [datos.gob.es](https://datos.gob.es/es/).
+Este proyecto muestra los municipios con mayor intensidad de uso de viviendas a partir de su mediana de consumo eléctrico anual, utilizando datos de la Comunidad de Madrid del año 2021 procedentes de la plataforma [datos.gob.es](https://datos.gob.es/es/).
+
+---
 
 ### Problema a resolver
-- Leer CSV con los datos del consumo eléctrico
-- Mostrar municipios con mayor valor de intensidad de uso, incluyendo territorio, valor y código
-- Permitir indicar el número de municipios a mostrar
-- Ordenar los resultados de manera descendente según el valor
+- Leer CSV con los datos del consumo eléctrico.
+- Mostrar municipios con mayor valor de intensidad de uso.
+- Indicar opcionalmente cuántos municipios mostrar (3 por defecto).
+- Ordenar los resultados de manera descendente según el valor del consumo.
+
+---
 
 ### Tecnologías
 Las tecnologías empleadas para este proyecto son:
-- Lenguaje: Java
-- Entorno de desarrollo: Visual Studio Code
+- Lenguaje: Java.
+- Entorno de desarrollo: Visual Studio Code.
+
+---
 
 ### Código
 #### Clase _Vivienda_
-- Método `toString()`: da formato de salida mostrando el territorio, el código y el valor
-~~~
-public String toString() { //Formato en el que se imprimirá
+La clase `Vivienda` representa cada registro del archivo CSV. 
+Incluye los siguientes métodos destacados:
+
+- **Método `toString()`**: da formato de salida mostrando el territorio, el código y el valor.
+```java
+public String toString() { 
         return "Territorio: "+this.territorio + " | Código: " + this.codigo + " | Valor: " + this.valor;
     }
-~~~
-- Método `compareTo()`: permite ordenar las viviendas de manera descendente según el valor
-~~~
- public int compareTo(Vivienda otra) { //Ordenar de manera descendente según el valor
+```
+- **Método `compareTo()`**: permite ordenar las viviendas de manera descendente según el valor.
+```java
+ public int compareTo(Vivienda otra) { 
         return otra.getValor() - this.valor;
     }
-~~~
-      
-#### Programa principal _ConsumoElectrico_
-- El programa acepta dos argumentos:
-  
-  1. Ruta del CSV
-  2. Cantidad de municipios a mostrar. Si no especifica, será 3 por defecto
+```
 
-Funcionamiento:
-- Lee el CSV línea a línea mediante un bucle `while`, utilizando un `BufferedReader` y omitiendo la cabecera
-- Cambiamos el valor de los guiones por 0
-- Crea objetos de la clase `Vivienda` a partir de los datos del CSV y los almacena en un `ArrayList`
-- Ordena la lista de viviendas según el valor de consumo
-- Muestra por pantalla el número solicitado de casos con mayor consumo
+---
+
+#### Programa principal _ConsumoElectrico_
+El programa acepta dos **argumentos de entrada**:
+- Ruta del archivo CSV.
+- Cantidad de municipios a mostrar. Si no especifica, será 3 por defecto.
+
+---
+
+**Funcionamiento paso a paso**:
+- **Validación de argumentos**: Al menos se debe introducir uno.
+- **Lectura del CSV**: Se lee línea a línea utilizando un `BufferedReader` y omitiendo la cabecera. Se separa con `split(";")` para obtener los diferentes campos. Si elcampo del valor contiene un guión, se sustituye por 0.
+- **Almacenamiento de datos**: Crea objetos de la clase `Vivienda` a partir de los datos del CSV  y los almacena en un `ArrayList`.
+- **Ordena la lista** de viviendas según el valor de consumo mediante:
+  ```java
+   Collections.sort(viviendas);
+  ```
+- Visualizar resultados: Muestra por pantalla el número solicitado de casos con mayor consumo.---
+
+---
+
+#### Ejemplo de ejecución
+**Entrada**
+java ConsumoElectrico.java viviendas.csv
+
+**Salida esperada**
+1) Territorio: Tielmes | Código: 1467 | Valor: 3741
+2) Territorio: Nuevo Baztán | Código: 1006 | Valor: 3663
+3) Territorio: Torres de la Alameda | Código: 1548 | Valor: 3607
+
+
 
