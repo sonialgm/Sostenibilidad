@@ -43,13 +43,13 @@ public String toString() {
 #### Programa principal _ConsumoElectrico_
 El programa acepta dos **argumentos de entrada**:
 - Ruta del archivo CSV.
-- Cantidad de municipios a mostrar. Si no especifica, será 3 por defecto.
+- Cantidad de municipios a mostrar. Si no se especifica, será 3 por defecto.
 
 ---
 
 **Funcionamiento paso a paso**:
 - **Validación de argumentos**: Al menos se debe introducir uno.
-- **Lectura del CSV**: Se lee línea a línea utilizando un `BufferedReader` y omitiendo la cabecera. Se separa con `split(";")` para obtener los diferentes campos. Si elcampo del valor contiene un guión, se sustituye por 0.
+- **Lectura del CSV**: Se lee línea a línea utilizando un `BufferedReader` y omitiendo la cabecera. Se separa con `split(";")` para obtener los diferentes campos. Si el campo del valor contiene un guión, se sustituye por 0.
 - **Almacenamiento de datos**: Crea objetos de la clase `Vivienda` a partir de los datos del CSV  y los almacena en un `ArrayList`.
 - **Ordena la lista** de viviendas según el valor de consumo mediante:
   ```java
