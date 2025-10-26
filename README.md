@@ -55,7 +55,7 @@ El programa acepta dos **argumentos de entrada**:
   ```java
    Collections.sort(viviendas);
   ```
-- Visualizar resultados: Muestra por pantalla el número solicitado de casos con mayor consumo.
+- **Visualizar resultados**: Muestra por pantalla el número solicitado de casos con mayor consumo.
 
 ---
 
