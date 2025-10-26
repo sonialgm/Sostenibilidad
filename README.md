@@ -61,6 +61,7 @@ El programa acepta dos **argumentos de entrada**:
 
 #### Ejemplo de ejecución
 **Entrada**
+```bash
 java ConsumoElectrico.java viviendas.csv
 
 **Salida esperada**
