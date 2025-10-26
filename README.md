@@ -63,6 +63,7 @@ El programa acepta dos **argumentos de entrada**:
 **Entrada**
 ```bash
 java ConsumoElectrico.java viviendas.csv
+```
 
 **Salida esperada**
 1) Territorio: Tielmes | Código: 1467 | Valor: 3741
